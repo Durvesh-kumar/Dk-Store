@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ClerkProvider>
           <Navebar/>
-        {children}
+          <div className="w-full container mx-auto my-10">{children}</div>
         </ClerkProvider>
         </body>
     </html>

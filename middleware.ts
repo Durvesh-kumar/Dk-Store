@@ -1,9 +1,6 @@
-import { authMiddleware } from '@clerk/nextjs/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
-export default authMiddleware({
-  publicRoutes: ["/:path*"]
-})
-
+export default clerkMiddleware({})
 export const config = {
   matcher: [
     // Skip Next.js internals and all static files, unless found in search params
