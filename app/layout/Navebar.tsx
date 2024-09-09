@@ -1,4 +1,5 @@
 "use client";
+import useCart from "@/lib/hooks/useCart";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { CircleUserRound, Menu, ShoppingCart } from "lucide-react";
 import Image from "next/image";
@@ -10,7 +11,9 @@ const Navebar = () => {
   // console.log(user);
   
   
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+
+  const cart = useCart();
 
   return (
     <div className="sticky top-0 left-0 z-10 py-2 px-10 flex justify-between items-center bg-white border-b shadow-md mb-5">
@@ -23,7 +26,7 @@ const Navebar = () => {
           href="/cart"
           className="flex rounded-2xl items-center gap-3 px-2 py-1 border hover:bg-gray-950 hover:text-white"
         >
-          <p className=" font-bold">Cart(0)</p>
+          <p className=" font-bold">Cart({cart?.cartItems.length})</p>
           <ShoppingCart />
         </Link>
         {user && <Menu onClick={()=> setIsOpen(!isOpen)} className=" cursor-pointer" />}

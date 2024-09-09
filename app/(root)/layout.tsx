@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import Navebar from "@/components/Navebar";
+import Navebar from "@/app/layout/Navebar";
+import ToastProvider from "@/lib/ToastProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ClerkProvider>
+          <ToastProvider/>
           <Navebar/>
           <div className="w-full container mx-auto my-10">{children}</div>
         </ClerkProvider>
