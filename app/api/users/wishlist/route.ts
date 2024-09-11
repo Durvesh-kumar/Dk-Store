@@ -7,10 +7,14 @@ export const POST = async (req:NextRequest)=>{
     try {
 
         const { userId } = auth();
+        console.log("[wishlist-Post}", userId);
+        
 
         if(!userId){
             return new NextResponse('Unautorized', {status: 401})
         }
+
+
 
         await connectToDB()
 

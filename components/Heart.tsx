@@ -1,18 +1,18 @@
-'use client'
-import { UserType } from '@/lib/types';
-import { useUser } from '@clerk/nextjs';
-import { Heart } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react'
+"use client";
+import { UserType } from "@/lib/types";
+import { useUser } from "@clerk/nextjs";
+import { Heart } from "lucide-react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 interface HeartPropes {
-    productId: string
+  productId: string;
+  updateSignedInUser?: (updateUser:UserType)=> void;
 }
 
-const HeartFavorites:React.FC<HeartPropes> = ({productId}) => {
-    const router = useRouter();
+const HeartFavorites: React.FC<HeartPropes> = ({ productId, updateSignedInUser }) => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [signUser, setSignUser] = useState<UserType | null>(null);
   const [isLike, setIsLike] = useState(false);
 
   const { user } = useUser();
@@ -27,11 +27,10 @@ const HeartFavorites:React.FC<HeartPropes> = ({productId}) => {
       if (res.ok) {
         const data = await res.json();
         setLoading(false);
-        setSignUser(data);
         setIsLike(data.wishlist.includes(productId));
       }
     } catch (error) {
-      console.log("[getUser", error);
+      console.log("[getUser]", error);
     }
   };
 
@@ -44,7 +43,7 @@ const HeartFavorites:React.FC<HeartPropes> = ({productId}) => {
   const handleLike = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    e.stopPropagation();
+    e.preventDefault();
 
     try {
       setLoading(true);
@@ -58,10 +57,10 @@ const HeartFavorites:React.FC<HeartPropes> = ({productId}) => {
         });
 
         if (res.ok) {
-          const updatedUser = await res.json();
+          const updateUser = await res.json();
           setLoading(false);
-          setSignUser(updatedUser);
-          setIsLike(updatedUser.wishlist.includes(productId));
+          setIsLike(updateUser.wishlist.includes(productId));
+          updateSignedInUser && updateSignedInUser(updateUser)
         }
       }
     } catch (error) {
@@ -70,9 +69,9 @@ const HeartFavorites:React.FC<HeartPropes> = ({productId}) => {
   };
   return (
     <button type="button" onClick={handleLike}>
-          <Heart fill={`${isLike ? "red" : "white"}`} />
+      <Heart fill={`${ isLike ? "red" : "white"}`} />
     </button>
-  )
-}
+  );
+};
 
-export default HeartFavorites
+export default HeartFavorites;

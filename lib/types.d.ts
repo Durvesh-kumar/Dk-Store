@@ -6,8 +6,8 @@ type CollectionType = {
     discription: string,
     image: string,
     products: ProductType[],
-    createdAt: Date,
-    updatedAt: Date
+    createdAt: string,
+    updatedAt: string
 }
 
 
@@ -24,14 +24,14 @@ type ProductType ={
     colors: [string],
     tags: [string],
     brand: string,
-    createdAt: Date,
-    updatedAt: Date
+    createdAt: string,
+    updatedAt: string
 }
 
 type UserType = {
     clerkId: string;
     wishlist: [string];
     orders: [string];
-    createdAt: Date,
-    updatedAt: Date
+    createdAt: string,
+    updatedAt: string
 }

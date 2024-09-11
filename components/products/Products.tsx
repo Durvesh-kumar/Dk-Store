@@ -1,6 +1,6 @@
 import { getProducts } from '@/lib/actions'
 import React from 'react'
-import ProductCart from './ProductCart'
+import ProductCard from './ProductCard'
 import { ProductType } from '@/lib/types'
 
 const Products = async() => {
@@ -16,7 +16,7 @@ const Products = async() => {
                 <div className='flex flex-wrap mx-auto gap-16'>
                     {
                         products?.map((product:ProductType)=>(
-                            <ProductCart product={product} key={product._id}/>
+                            <ProductCard product={product} key={product._id}/>
                         ))
                     }
                 </div>

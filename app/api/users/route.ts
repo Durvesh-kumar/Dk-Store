@@ -6,6 +6,8 @@ import { NextRequest, NextResponse } from "next/server";
 export const GET = async(req: NextRequest)=>{
     try {
         const { userId } = auth()
+        console.log("[route_User]", userId);
+        
         if(!userId){
             return new NextResponse("Unautorized", {status: 401})
         }

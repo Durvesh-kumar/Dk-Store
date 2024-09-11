@@ -2,16 +2,15 @@ import { create } from "zustand";
 import { toast } from "react-hot-toast";
 import { ProductType } from "../types";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { ShoppingBag } from "lucide-react";
 
-interface CartItem {
+export interface CartItem {
   item: ProductType; // product
   quantity: number;
   color?: string;
   size?: string;
 }
 
-interface CartStore {
+export interface CartStore {
   cartItems: CartItem[];
   addItem: (item: CartItem) => void;
   removeItem: (_id: string) => void;

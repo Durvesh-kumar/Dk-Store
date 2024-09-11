@@ -14,6 +14,7 @@ const Collections = async () => {
       {!collections || collections?.length == 0 ? (
         <p>Collections not found</p>
       ) : (
+        <div className="sm:grid-cols-1 xl:grid-cols-4 xxl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-5 mb-5">
         <div className="flex items-center flex-wrap justify-center gap-10">
           {collections?.map((collection: CollectionType) => (
             <Link
@@ -30,6 +31,7 @@ const Collections = async () => {
               />
             </Link>
           ))}
+        </div>
         </div>
       )}
     </div>
