@@ -9,6 +9,10 @@ const SuccessPayment = () => {
   const router = useRouter();
   const cart = useCart();
 
+  setTimeout(()=>{
+    router.push("/")
+  }, 20000)
+
   useEffect(() => {
     cart.clearCart();
   }, []);

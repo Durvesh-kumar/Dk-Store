@@ -13,7 +13,7 @@ interface HeartPropes {
 const HeartFavorites: React.FC<HeartPropes> = ({ productId, updateSignedInUser }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [isLike, setIsLike] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   const { user } = useUser();
 
@@ -27,7 +27,7 @@ const HeartFavorites: React.FC<HeartPropes> = ({ productId, updateSignedInUser }
       if (res.ok) {
         const data = await res.json();
         setLoading(false);
-        setIsLike(data.wishlist.includes(productId));
+        setIsLiked(data.wishlist.includes(productId));
       }
     } catch (error) {
       console.log("[getUser]", error);
@@ -56,12 +56,10 @@ const HeartFavorites: React.FC<HeartPropes> = ({ productId, updateSignedInUser }
           body: JSON.stringify({ productId }),
         });
 
-        if (res.ok) {
           const updateUser = await res.json();
-          setLoading(false);
-          setIsLike(updateUser.wishlist.includes(productId));
-          updateSignedInUser && updateSignedInUser(updateUser)
-        }
+          setIsLiked(updateUser.wishlist.includes(productId));
+          updateSignedInUser && updateSignedInUser(updateUser);
+          setLoading(false)
       }
     } catch (error) {
       console.log("[Wishlist_POST", error);
@@ -69,7 +67,7 @@ const HeartFavorites: React.FC<HeartPropes> = ({ productId, updateSignedInUser }
   };
   return (
     <button type="button" onClick={handleLike}>
-      <Heart fill={`${ isLike ? "red" : "white"}`} />
+      <Heart fill={`${ isLiked ? "red" : "white"}`} />
     </button>
   );
 };

@@ -7,21 +7,17 @@ export const POST = async (req:NextRequest)=>{
     try {
 
         const { userId } = auth();
-        console.log("[wishlist-Post}", userId);
-        
 
         if(!userId){
             return new NextResponse('Unautorized', {status: 401})
         }
-
-
 
         await connectToDB()
 
         const user = await User.findOne({clerkId: userId});
 
         if(!user){
-            return new NextResponse('User not Found', {status: 400})
+            return new NextResponse('User not Found', {status: 404})
         }
 
         const {productId} = await req.json()
@@ -30,9 +26,9 @@ export const POST = async (req:NextRequest)=>{
             return new NextResponse('Product not Found', {status: 400})
         }
 
-        const isLike = user.wishlist.includes(productId)
+        const isLiked = user.wishlist.includes(productId)
 
-        if(isLike){
+        if(isLiked){
             //Dislike
             user.wishlist = user.wishlist.filter((id: string)=> id !== productId)
         }else{
