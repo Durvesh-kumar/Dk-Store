@@ -20,13 +20,16 @@ const ProductCard: React.FC<ProductCardPropes> = ({ product, updateSignedInUser 
         
       >
         <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border">
-        <Image
+          <div className="h-72 w-72 rounded-t-xl">
+          <Image
           src={product?.media[0]}
           alt="Product"
-          width={500}
-          height={600}
-          className="h-72 w-64 object-fill rounded-t-xl"
+          width={300}
+          height={500}
+          className=" w-full h-full object-fill rounded-t-xl"
         />
+          </div>
+        
         <div className="px-4 py-3 w-72 bg-gray-200">
           <span className="text-gray-950 bg-red-500 rounded-xl px-3 py-1 animate-pulse mr-3 uppercase text-xs">
             {product?.brand}
