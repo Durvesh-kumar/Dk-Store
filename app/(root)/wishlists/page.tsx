@@ -1,6 +1,5 @@
 "use client"
 import { getProductDetails } from '@/lib/actions/actions';
-import { ProductType, UserType } from '@/lib/types';
 import { useUser } from '@clerk/nextjs';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';

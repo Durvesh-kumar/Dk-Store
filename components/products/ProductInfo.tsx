@@ -1,5 +1,4 @@
 "use client";
-import { ProductType } from "@/lib/types";
 import HeartFavorites from "../Heart";
 import { useState } from "react";
 import { CircleMinus, CirclePlus } from "lucide-react";

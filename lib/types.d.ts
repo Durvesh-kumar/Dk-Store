@@ -1,4 +1,3 @@
-import { useUser } from '@clerk/nextjs';
 
 type CollectionType = {
     _id: string,

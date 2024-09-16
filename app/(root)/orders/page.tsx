@@ -1,5 +1,4 @@
 import { getOrders } from "@/lib/actions/actions";
-import { OrderItemType, OrderType } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";
 import { IndianRupee } from "lucide-react";
 import Image from "next/image";

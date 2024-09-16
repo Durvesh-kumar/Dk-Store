@@ -1,8 +1,6 @@
 "use client";
 import indianCurrency from "@/lib/indianCurrancy";
-import { ProductType, UserType } from "@/lib/types";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import HeartFavorites from "../Heart";
 import Link from "next/link";
 

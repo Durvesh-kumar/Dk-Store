@@ -1,6 +1,5 @@
 import ProductCard from "@/components/products/ProductCard";
 import { getProductsCategory } from "@/lib/actions/actions";
-import { ProductType } from "@/lib/types";
 
 const Category = async ({ params }: { params: { category: string } }) => {
   const products = await getProductsCategory(params.category);

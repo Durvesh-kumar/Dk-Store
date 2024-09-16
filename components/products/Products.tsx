@@ -1,7 +1,6 @@
 import { getProducts } from '@/lib/actions/actions'
 import React from 'react'
 import ProductCard from './ProductCard'
-import { ProductType } from '@/lib/types'
 
 const Products = async() => {
 
