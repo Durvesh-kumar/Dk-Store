@@ -1,7 +1,6 @@
 import ProductCard from '@/components/products/ProductCard'
 import { getCollections, getProducts, getProductsCategorys, } from '@/lib/actions/actions'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
 import Link from 'next/link'
 
 const Home = async() => {
