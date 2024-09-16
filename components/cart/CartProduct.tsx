@@ -18,7 +18,7 @@ const CartProduct: React.FC<CartProductPropes> = ({cart}) => {
         ) : (
           <div className='grid gap-3'>
             {cart?.cartItems.map((cartItem: CartItem) => (
-              <div className=" w-full flex hover:bg-gray-100 bg-gray-50 px-5 py-3 items-center justify-between rounded-xl max-md:start-center">
+              <div key={cartItem.item._id} className=" w-full flex hover:bg-gray-100 bg-gray-50 px-5 py-3 items-center justify-between rounded-xl max-md:start-center">
                 <div className="flex items-center max-lg:flex-col">
                   <Image
                     src={cartItem?.item?.media[0]}
