@@ -20,14 +20,14 @@ const Orders = async () => {
               <div className="flex gap-20 max-md:flex-col max-md:gap-3">
                 <p className="text-lg font-semibold">Order ID: {order?._id}</p>
                 <p className="text-lg font-semibold flex items-center gap-2">
-                   <span>Tolte Amount:</span> <IndianRupee className="w-4 h-4" />
-                  {order?.totalAmount}
+                   <span>Tolte Amount:</span>
+                  {indianCurrency(order?.totalAmount)}
                 </p>
               </div>
 
               <div className="flex flex-col gap-5">
                 {order?.products?.map((orderItem: OrderItemType) => (
-                  <div key={orderItem._id} className="flex gap-20 max-md:gap-3 max-md:flex-col">
+                  <div key={orderItem._id} className="flex gap-24 max-md:gap-3 max-md:flex-col">
                   <div className="flex gap-4 max-md:flex-col" key={orderItem._id}>
                     <Image
                       src={orderItem?.product.media[0]}
