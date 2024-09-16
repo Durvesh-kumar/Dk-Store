@@ -1,4 +1,4 @@
-import { getCollectionDetails } from '@/lib/actions'
+import { getCollectionDetails } from '@/lib/actions/actions'
 import React from 'react'
 
 const CollectionDetails = async({params}:{params: {collectionId: string}}) => {
@@ -8,4 +8,5 @@ const CollectionDetails = async({params}:{params: {collectionId: string}}) => {
   )
 }
 
-export default CollectionDetails
+export const dynamic = "force-dynamic";
+export default CollectionDetails;

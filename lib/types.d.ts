@@ -35,3 +35,21 @@ type UserType = {
     createdAt: string,
     updatedAt: string
 }
+
+type OrderType = {
+    _id: string;
+    customerClerkId: string;
+    products: [OrderItemType];
+    totalAmount: number;
+    shippingRate:string;
+    shippingAddress: object;
+    createdAt: string
+}
+
+type OrderItemType ={
+    _id: string;
+    product: ProductType;
+    color: string;
+    size: string;
+    quantity: number;
+}

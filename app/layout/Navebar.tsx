@@ -6,10 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import SearchBox from "./SearchBox";
+import { usePathname } from "next/navigation";
 
 const Navebar = () => {
+  const pathName = usePathname();
   const { user } = useUser(); // this use only client side
-  // console.log(user);
   
   
   const [isOpen, setIsOpen] = useState(false);
@@ -27,17 +28,17 @@ const Navebar = () => {
       </div>
       
       <div className="flex gap-4 text-gray-900 font-bold max-lg:hidden">
-        <Link href="/" className="hover:text-red-600 flex items-center gap-1">
+        <Link href="/" className={`hover:text-red-600 flex items-center gap-1 ${pathName === "/" && "text-blue-600"}`}>
            <House className="w-4 h-4 text-gray-400" />
            <span>Home</span>
         </Link>
 
-        <Link href={user ? "/wishlist" : "/sign-in"} className="hover:text-red-600 flex items-center gap-1">
+        <Link href={user ? "/wishlists" : "/sign-in"} className={`hover:text-red-600 flex items-center gap-1 ${pathName === "/wishlists" && "text-blue-600"}`}>
            <Heart className="w-4 h-4 text-gray-400" /> 
            <span>Wishlist</span>
         </Link>
 
-        <Link href={user ? "/orders" : "/sign-in"} className="hover:text-red-600 flex items-center gap-1">
+        <Link href={user ? "/orders" : "/sign-in"} className={`hover:text-red-600 flex items-center gap-1 ${pathName === "/orders" && "text-blue-600"}`}>
            <ShoppingBag className="w-4 h-4 text-gray-400"/>
            <span>Orders</span>
         </Link>
@@ -46,7 +47,7 @@ const Navebar = () => {
       <div className="flex items-center relative gap-x-3 min-lg:hidden">
         <Link
           href="/cart"
-          className="flex rounded-2xl items-center gap-3 px-2 py-1 border hover:bg-gray-950 hover:text-white max-lg:hidden"
+          className={`flex rounded-2xl items-center gap-3 px-2 py-1 border hover:bg-gray-950 hover:text-white max-lg:hidden ${pathName === "/cart" && "border-blue-600"}`}
         >
           <p className=" font-bold">Cart({cart?.cartItems.length})</p>
           <ShoppingCart />
@@ -63,15 +64,15 @@ const Navebar = () => {
             isOpen && (
               <div className="flex gap-4 top-10 left-0 absolute flex-col border shadow-lg py-6 rounded-xl px-1 bg-white lg:hidden">
                   
-                <Link href='/' className="hover:text-red-600 hover:bg-slate-200 px-6 flex items-center gap-1">
+                <Link href='/' className= {`hover:text-red-600 hover:bg-slate-200 px-6 flex items-center gap-1 ${pathName === "/" && "text-blue-600"}`}>
                    <House className="w-4 h-4 text-gray-400" />
                    <span>Home</span>
                 </Link>
-                <Link href={user ? "/wishlist" : "/sign-in"} className="hover:text-red-600 hover:bg-slate-200 px-6 flex items-center gap-1">
+                <Link href={user ? "/wishlists" : "/sign-in"} className= {`hover:text-red-600 hover:bg-slate-200 px-6 flex items-center gap-1 ${pathName === "/wishlists" && "text-blue-600"}`}>
                   <Heart className="w-4 h-4 text-gray-400" /> 
                   <span>Wishlist</span>
                 </Link>
-                <Link href={user ? "/orders" : "/sign-in"} className="hover:text-red-600 hover:bg-slate-200 px-6 flex items-center gap-1">
+                <Link href={user ? "/orders" : "/sign-in"} className= {`hover:text-red-600 hover:bg-slate-200 px-6 flex items-center gap-1 ${pathName === "/orders" && "text-blue-600"}`}>
                    <ShoppingBag className="w-4 h-4 text-gray-400"/>
                    <span>Orders</span>
                 </Link>

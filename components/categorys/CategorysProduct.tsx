@@ -1,4 +1,4 @@
-import { getProductsCategorys } from '@/lib/actions'
+import { getProductsCategorys } from '@/lib/actions/actions'
 import { ProductType } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';

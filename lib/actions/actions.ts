@@ -28,9 +28,7 @@ export const getCollectionDetails = async(collectionId: string)=>{
 
 export const getProducts = async()=>{
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`,{
-            method: "GET",
-        })
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
         
         
         if(res.ok){
@@ -94,6 +92,38 @@ export const getSearchQuery = async(query:string)=>{
         
         if(res.ok){
             return await res.json();
+        }
+    } catch (error) {
+        console.log('[categorys_GET]', error);
+    }
+}
+
+export const getOrders = async(cutomerId:string)=>{
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/customer/${cutomerId}`,{
+            method: "GET"
+        })
+        
+        if(res.ok){
+            return await res.json();
+            // console.log(await res.json());
+            
+        }
+    } catch (error) {
+        console.log('[categorys_GET]', error);
+    }
+}
+
+export const getRelatedProducts = async(productId:string)=>{
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${productId}/related`,{
+            method: "GET"
+        })
+        
+        if(res.ok){
+            return await res.json();
+            // console.log(await res.json());
+            
         }
     } catch (error) {
         console.log('[categorys_GET]', error);

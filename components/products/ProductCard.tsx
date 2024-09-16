@@ -14,9 +14,8 @@ interface ProductCardPropes {
 const ProductCard: React.FC<ProductCardPropes> = ({ product, updateSignedInUser }) => {
   const router = useRouter();
   return (
-    <div className="sm:grid-cols-1 xl:grid-cols-4 xxl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-5 mb-5">
       <Link
-      href={`/products/${product._id}`}
+      href={`/products/${product?._id}`}
         
       >
         <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border">
@@ -47,13 +46,12 @@ const ProductCard: React.FC<ProductCardPropes> = ({ product, updateSignedInUser 
               </p>
             </del>
             <div className="ml-auto">
-              <HeartFavorites updateSignedInUser={updateSignedInUser} productId={product._id} />
+              <HeartFavorites updateSignedInUser={updateSignedInUser} productId={product?._id} />
             </div>
           </div>
         </div>
         </div>
       </Link>
-    </div>
   );
 };
 
