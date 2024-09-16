@@ -38,7 +38,7 @@ const Wishlists = () => {
 
       const wishlistProduct = await Promise.all(userSigned.wishlist.map(async(productId)=>{
         const products = await getProductDetails(productId)
-        return products
+        return products;
       }))
       setGetProducts(wishlistProduct)
       setLoading(false)
@@ -53,6 +53,7 @@ const Wishlists = () => {
     setUserSigned(updateUser)
    }
 
+   console.log(getProducts);
    
    
   return loading ? <Loader/> : (
