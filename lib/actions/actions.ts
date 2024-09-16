@@ -1,4 +1,3 @@
-import { log } from "console";
 
 export const getCollections = async()=>{
     try {
