@@ -28,7 +28,9 @@ export const getCollectionDetails = async(collectionId: string)=>{
 
 export const getProducts = async()=>{
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`,{
+            method: "GET"
+        })
         
         
         if(res.ok){
