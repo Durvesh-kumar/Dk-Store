@@ -37,7 +37,7 @@ const Home = async() => {
         <p>Collections not found</p>
       ) : (
         <div className="flex items-center justify-center gap-10 flex-wrap">
-        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {collections?.map((collection: CollectionType) => (
             <Link
               href={`/collections/${collection._id}`}

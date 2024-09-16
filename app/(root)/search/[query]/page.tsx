@@ -13,7 +13,7 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
       {!getProduct || getProduct.length === 0 ? (
         <p className="text-xl font-bold text-gray-800">No result found</p>
       ) : (
-        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {getProduct?.map((product:ProductType) => (
             <ProductCard product={product} key={product._id} />
           ))}
