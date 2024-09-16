@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { toast } from "react-hot-toast";
-import { ProductType } from "../types";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 export interface CartItem {

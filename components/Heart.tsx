@@ -64,7 +64,7 @@ const HeartFavorites: React.FC<HeartPropes> = ({ productId, updateSignedInUser }
       console.log("[Wishlist_POST", error);
     }
   };
-  return (
+  return loading ? <Heart/> :(
     <button type="button" onClick={handleLike}>
       <Heart fill={`${ isLiked ? "red" : "white"}`} />
     </button>

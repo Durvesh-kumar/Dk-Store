@@ -1,14 +1,12 @@
 
-function indianCurrency(price:any) {
+function indianCurrency(price:number) {
     
-    const num = Number(price)
-
     const formatCurrency = Intl.NumberFormat('en-IN', {
         style: 'currency',
         currency: 'INR',
         minimumFractionDigits: 2
     })
-    return formatCurrency.format(num)
+    return formatCurrency.format(price)
 }
 
 export default indianCurrency;

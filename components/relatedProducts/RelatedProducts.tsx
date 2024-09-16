@@ -1,5 +1,4 @@
 import { getRelatedProducts } from "@/lib/actions/actions";
-import { ProductType } from "@/lib/types";
 import ProductCard from "../products/ProductCard";
 
 interface RelatedProductsPropes{

@@ -14,7 +14,7 @@ const SearchPage = async ({ params }: { params: { query: string } }) => {
         <p className="text-xl font-bold text-gray-800">No result found</p>
       ) : (
         <div className="flex items-center justify-center flex-wrap gap-10">
-          {getProduct?.map((product: any) => (
+          {getProduct?.map((product:ProductType) => (
             <ProductCard product={product} key={product._id} />
           ))}
         </div>
