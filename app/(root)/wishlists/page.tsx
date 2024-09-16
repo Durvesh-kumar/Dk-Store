@@ -65,7 +65,7 @@ const Wishlists = () => {
            !getProducts || getProducts.length === 0 ?(
             <p className='text-xl font-bold text-gray-900'>No item your Wishlist</p>
            ):
-           <div className='flex gap-10 flex-wrap items-center justify-center'>
+           <div className='grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4'>
             {
               getProducts?.map((product:ProductType)=>(
                 <ProductCard key={product?._id} product={product} updateSignedInUser={updateSingedInUser}/>

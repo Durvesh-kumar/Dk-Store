@@ -12,7 +12,7 @@ const Category = async ({ params }: { params: { category: string } }) => {
       {!products || products.length === 0 ? (
         <h1>Product not found</h1>
       ) : (
-        <div className="flex items-center justify-center flex-wrap gap-10">
+        <div className="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
           {products?.map((product: ProductType) => (
             <ProductCard key={product._id} product={product} />
           ))}
