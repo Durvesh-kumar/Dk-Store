@@ -1,7 +1,6 @@
 import { getOrders } from "@/lib/actions/actions";
 import indianCurrency from "@/lib/indianCurrancy";
 import { auth } from "@clerk/nextjs/server";
-import { IndianRupee } from "lucide-react";
 import Image from "next/image";
 
 const Orders = async () => {
