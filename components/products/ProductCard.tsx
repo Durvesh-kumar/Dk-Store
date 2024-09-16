@@ -12,7 +12,6 @@ interface ProductCardPropes {
 }
 
 const ProductCard: React.FC<ProductCardPropes> = ({ product, updateSignedInUser }) => {
-  const router = useRouter();
   return (
       <Link
       href={`/products/${product?._id}`}
