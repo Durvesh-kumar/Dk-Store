@@ -1,3 +1,5 @@
+import { log } from "console";
+
 export const getCollections = async()=>{
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/collections`,{
@@ -107,8 +109,8 @@ export const getOrders = async(cutomerId:string)=>{
         })
         
         if(res.ok){
+            
             return await res.json();
-            // console.log(await res.json());
             
         }
     } catch (error) {
