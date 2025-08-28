@@ -1,0 +1,36 @@
+name: "DK-Store-admin Continuous Deployment/Delivery"
+
+on:
+  workflow_run:
+    workflows: ["DK-Store-admin Continous Intregration"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    environment: production
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Update apt
+        run: sudo apt-get update
+
+      - name: Setup Bun  
+        run: | 
+            curl -fsSL https://bun.sh/install | bash 
+            echo "$HOME/.bun/bin" >> $GITHUB_PATH
+
+      - name: Verify Bun installation
+        run: bun --version
+
+      - name: Download build files
+        uses: actions/download-artifact@v5
+        with:
+          name: build
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - name: Deploy on AWS
+        # run: pm2 start "bun run start" --name "next-app"
+        run: pm2 restart server
